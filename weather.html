@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast App</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="weather.css">
+</head>
+
+<body>
+    <!-- Ambient Background Light Spheres -->
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+        <div class="globe globe-3"></div>
+    </div>
+
+    <main class="weather-container">
+        <!-- Toast Notification Area -->
+        <div id="toast-container" class="toast-container"></div>
+
+        <!-- Header Bar -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-cloud-sun-rain"></i>
+                <h1>Weather Forecast</h1>
+            </div>
+            <div class="unit-toggle">
+                <button id="unit-c" class="unit-btn active" type="button" title="Celsius">°C</button>
+                <button id="unit-f" class="unit-btn" type="button" title="Fahrenheit">°F</button>
+            </div>
+        </header>
+
+        <!-- Search & Actions Section -->
+        <section class="search-box">
+            <div class="input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input class="helo" type="text" id="city" list="cities" placeholder="Search city..." autocomplete="off">
+                <datalist id="cities"></datalist>
+            </div>
+            
+            <button class="btn search-btn" type="button" title="Search City">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span>Search</span>
+            </button>
+
+            <button id="location-btn" class="location-btn" type="button" title="Use My Current Location">
+                <i class="fa-solid fa-location-crosshairs"></i>
+            </button>
+        </section>
+
+        <!-- Quick City Shortcuts -->
+        <section class="quick-cities">
+            <span class="quick-label">Popular:</span>
+            <div class="city-pills">
+                <button class="pill-btn" data-city="Islamabad">Islamabad</button>
+                <button class="pill-btn" data-city="Lahore">Lahore</button>
+                <button class="pill-btn" data-city="Karachi">Karachi</button>
+                <button class="pill-btn" data-city="London">London</button>
+                <button class="pill-btn" data-city="New York">New York</button>
+            </div>
+        </section>
+
+        <!-- Weather Output Display -->
+        <div class="output">
+            <div class="location-date-header">
+                <h2 class="chng">Select a City</h2>
+                <p class="current-date" id="date-time">Enter a city or use current location</p>
+            </div>
+
+            <!-- Main Hero Weather Display -->
+            <div class="main-weather">
+                <div class="weather-icon-wrapper">
+                    <img id="weather-icon" src="" alt="Weather Icon" class="weather-icon" style="display: none;">
+                    <div id="icon-placeholder" class="icon-placeholder">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                </div>
+                <div class="temp-badge-group">
+                    <div class="main-temp-display">
+                        <span id="temp-val">--</span><span class="temp-unit">°C</span>
+                    </div>
+                    <div id="condition-badge" class="condition-badge">Waiting for search...</div>
+                </div>
+            </div>
+
+            <!-- Weather Details Grid -->
+            <div class="parae">
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                    <div class="metric-info">
+                        <span class="metric-label">Feels Like</span>
+                        <span class="metric-val" id="feels-like">--</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="metric-info">
+                        <span class="metric-label">Humidity</span>
+                        <span class="metric-val" id="humidity-val">--</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fa-solid fa-wind"></i></div>
+                    <div class="metric-info">
+                        <span class="metric-label">Wind Speed</span>
+                        <span class="metric-val" id="wind-val">--</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div class="metric-info">
+                        <span class="metric-label">Pressure</span>
+                        <span class="metric-val" id="pressure-val">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="weather.js"></script>
+</body>
+
+</html>
